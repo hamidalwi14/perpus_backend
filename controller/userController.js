@@ -158,3 +158,21 @@ exports.updateWebUser = (idUser, data) =>
         });
       });
   });
+
+exports.delete = (idBarang) =>
+  new Promise((resolve, reject) => {
+    userModel
+      .deleteOne({ _id: objectId(idBarang) })
+      .then(() => {
+        resolve({
+          status: true,
+          msg: "Berhasil Menghapus data",
+        });
+      })
+      .catch(() => {
+        reject({
+          status: false,
+          msg: "Terjadi Kesalahan Pada server",
+        });
+      });
+  });

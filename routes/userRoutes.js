@@ -96,6 +96,17 @@ router.put("/update/:idUser", uploadFile, (req, res) => {
     });
 });
 
+router.delete("/delete/:idBarang", (req, res) => {
+  controllerUser
+    .delete(req.params.idBarang)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
 
 //app.use('/users', require())
